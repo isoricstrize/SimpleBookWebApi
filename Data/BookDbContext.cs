@@ -19,13 +19,6 @@ namespace SimpleBookWebApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            /*modelBuilder.Entity<Task>()
-                .HasOne(e => e.TaskDetail)
-                .WithOne(e => e.Task)
-                .HasForeignKey<TaskDetail>(e => e.TaskId)
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.Cascade);*/  
-
             // Book and Genre (many to many)
             modelBuilder.Entity<Book>()
                 .HasMany(b => b.Genres)
@@ -72,16 +65,6 @@ namespace SimpleBookWebApi.Data
             new BookDetails { Id = 4, BookId = 4, Description = "A deep exploration of racism and justice.", PublishedDate = new DateTime(1960, 7, 11, 0, 0, 0, DateTimeKind.Utc), TotalPages = 281 },
             new BookDetails { Id = 5, BookId = 5, Description = "A mysterious millionaire and the American dream.", PublishedDate = new DateTime(1925, 4, 10, 0, 0, 0, DateTimeKind.Utc), TotalPages = 180 }
             );
-
-            // Book-Genre many-to-many relationships
-            /*modelBuilder.Entity<Book>()
-            .HasData(
-                new Book { Id = 1, Title = "Harry Potter and the Sorcerer's Stone", AuthorId = 1, Genres = new List<Genre> { new Genre { Id = 1, Name = "Fantasy" }, new Genre { Id = 3, Name = "Adventure" } } },
-                new Book { Id = 2, Title = "A Game of Thrones", AuthorId = 2, Genres = new List<Genre> { new Genre { Id = 1, Name = "Fantasy" }, new Genre { Id = 3, Name = "Adventure" } } },
-                new Book { Id = 3, Title = "The Hobbit", AuthorId = 3, Genres = new List<Genre> { new Genre { Id = 1, Name = "Fantasy" }, new Genre { Id = 3, Name = "Adventure" } } },
-                new Book { Id = 4, Title = "To Kill a Mockingbird", AuthorId = 4, Genres = new List<Genre> { new Genre { Id = 2, Name = "Drama" }, new Genre { Id = 4, Name = "Classic" } } },
-                new Book { Id = 5, Title = "The Great Gatsby", AuthorId = 5, Genres = new List<Genre> { new Genre { Id = 2, Name = "Drama" }, new Genre { Id = 4, Name = "Classic" } } }
-            );*/
         }
 
     }

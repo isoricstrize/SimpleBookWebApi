@@ -45,8 +45,8 @@ namespace SimpleBookWebApi.Controllers
             _db.Books.Add(newBook);
             await _db.SaveChangesAsync();
 
-            return Created();
-            //return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
+            //return Created();
+            return CreatedAtAction(nameof(GetBookById), new { id = newBook.Id }, newBook);
         }
 
         [HttpPut("{id}")]
