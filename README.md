@@ -12,7 +12,7 @@ SimpleBookWebApi is a .NET 9 controller-based Web API for a book library system 
 
 ## Technologies Used
 - **.NET 9 / ASP.NET Core Web API:** Framework for building the web application.
-- **PostgreSQL (via Npgsql):** Database to store task-related data.
+- **PostgreSQL (via Npgsql):** Database to store book-related data.
 - **Entity Framework Core:** ORM for database management.
 - **Scalar:** Interactive API documentation & testing.
 
@@ -59,3 +59,4 @@ erDiagram
         int BooksId FK
         int GenresId FK
     }
+
