@@ -1,7 +1,15 @@
 # SimpleBookWebApi
 SimpleBookWebApi is a .NET 9 controller-based Web API for a book library system that manages books, authors, genres and book details using PostgreSQL. The system allows users to perform CRUD operations on books and manage their relationships with authors and genres. Authentication and role-based authorization are implemented using JWT tokens.
 
-<p align="center"> <img src="https://img.shields.io/badge/.NET-9-blueviolet?style=for-the-badge" /> <img src="https://img.shields.io/badge/WebAPI-REST-green?style=for-the-badge" /> <img src="https://img.shields.io/badge/PostgreSQL-Npgsql-blue?style=for-the-badge" /> <img src="https://img.shields.io/badge/EF_Core-ORM-orange?style=for-the-badge" /> <img src="https://img.shields.io/badge/CRUD-Operations-yellow?style=for-the-badge" /> <img src="https://img.shields.io/badge/Scalar-Docs-purple?style=for-the-badge" /> </p>
+<p align="center">
+  <img src="https://img.shields.io/badge/.NET-9-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/WebAPI-REST-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Npgsql-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/EF_Core-ORM-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/CRUD-Operations-yellow?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Auth-JWT-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Scalar-Docs-purple?style=for-the-badge" />
+</p>
 
 ## Features
 - **User Management:** Register, login and maintain user sessions with JWT and refresh tokens.
@@ -72,3 +80,4 @@ erDiagram
 ```
 <br>
 Note: The ApplicationUser table is used for authentication and role-based authorization. It is not part of the main book library data model.
+
