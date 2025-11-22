@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SimpleBookWebApi.Models
+namespace SimpleBookWebApi.Entities
 {
     public class BookDetails
     {
@@ -13,6 +13,6 @@ namespace SimpleBookWebApi.Models
         public int TotalPages { get; set; }
 
         // 1-1 relationship
-        public int BookId { get; set; } 
+        public int BookId { get; set; }
     }
 }

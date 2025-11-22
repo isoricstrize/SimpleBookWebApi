@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SimpleBookWebApi.Data;
@@ -11,9 +12,11 @@ using SimpleBookWebApi.Data;
 namespace SimpleBookWebApi.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    partial class BookDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251121114212_ApplicationUserRole")]
+    partial class ApplicationUserRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,12 +50,6 @@ namespace SimpleBookWebApi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("RefreshToken")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("RefreshTokenExpiryTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("text");
@@ -64,15 +61,6 @@ namespace SimpleBookWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ApplicationUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("6d67338d-54a0-463c-b5fb-18e1af3df682"),
-                            PasswordHash = "AQAAAAIAAYagAAAAEH/2Th5V7nKAS9isjhJHTzDY9Fk6Z7WGSC79koe6ZhOp33vbZvbxlDm63In2eqrakg==",
-                            Role = "Admin",
-                            Username = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("SimpleBookWebApi.Entities.Author", b =>

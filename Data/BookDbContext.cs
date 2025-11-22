@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SimpleBookWebApi.Models;
+using SimpleBookWebApi.Entities;
 
 namespace SimpleBookWebApi.Data
 {
     public class BookDbContext(DbContextOptions<BookDbContext> options) : DbContext(options)
     {
-        public DbSet<Book> Books { get; set;}
-        public DbSet<Book> BooksDetails { get; set;}
-        public DbSet<Book> Authors { get; set;}
-        public DbSet<Book> Genres { get; set;}
+        // Book library tables
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Book> BooksDetails { get; set; }
+        public DbSet<Book> Authors { get; set; }
+        public DbSet<Book> Genres { get; set; }
 
+        // Registered users table
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -64,6 +67,17 @@ namespace SimpleBookWebApi.Data
             new BookDetails { Id = 3, BookId = 3, Description = "A hobbit sets out on a perilous quest to reclaim treasure.", PublishedDate = new DateTime(1937, 9, 21, 0, 0, 0, DateTimeKind.Utc), TotalPages = 310 },
             new BookDetails { Id = 4, BookId = 4, Description = "A deep exploration of racism and justice.", PublishedDate = new DateTime(1960, 7, 11, 0, 0, 0, DateTimeKind.Utc), TotalPages = 281 },
             new BookDetails { Id = 5, BookId = 5, Description = "A mysterious millionaire and the American dream.", PublishedDate = new DateTime(1925, 4, 10, 0, 0, 0, DateTimeKind.Utc), TotalPages = 180 }
+            );
+
+            // ApplicationUser (Admin setup)
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    Id = Guid.Parse("6d67338d-54a0-463c-b5fb-18e1af3df682"),
+                    Username = "Admin",
+                    PasswordHash = "AQAAAAIAAYagAAAAEH/2Th5V7nKAS9isjhJHTzDY9Fk6Z7WGSC79koe6ZhOp33vbZvbxlDm63In2eqrakg==",
+                    Role = "Admin"
+                }
             );
         }
 
